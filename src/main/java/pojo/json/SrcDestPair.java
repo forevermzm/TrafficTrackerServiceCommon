@@ -18,6 +18,11 @@ public abstract class SrcDestPair {
         return getSrcAddress().getPlaceId() + "-" + getDestAddress().getPlaceId();
     }
 
+    @Value.Derived
+    public String getPath() {
+        return getSrcAddress().getPlaceId() + "/" + getDestAddress().getPlaceId();
+    }
+
     public static ImmutableSrcDestPair.Builder builder() {
         return ImmutableSrcDestPair.builder();
     }

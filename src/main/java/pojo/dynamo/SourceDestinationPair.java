@@ -3,17 +3,21 @@ package pojo.dynamo;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConvertedJson;
+import converter.dynamo.InstantConverter;
+import converter.dynamo.OptionalInstantConverter;
 import pojo.json.SrcDestPair;
 
-import java.util.Date;
+import java.time.Instant;
 
 @DynamoDBTable(tableName = "source-destination-pair")
 public class SourceDestinationPair {
 
     private String id;
     private SrcDestPair pair;
-    private Date creationDate;
+    private Instant creationDate;
+    private Instant lastUpdateTime;
 
     @DynamoDBHashKey(attributeName = "src-dest-pair")
     public String getId() {
@@ -34,12 +38,23 @@ public class SourceDestinationPair {
         this.pair = pair;
     }
 
+    @DynamoDBTypeConverted( converter = InstantConverter.class )
     @DynamoDBAttribute
-    public Date getCreationDate() {
+    public Instant getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(Instant creationDate) {
         this.creationDate = creationDate;
+    }
+
+    @DynamoDBTypeConverted( converter = InstantConverter.class )
+    @DynamoDBAttribute
+    public Instant getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Instant lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
     }
 }

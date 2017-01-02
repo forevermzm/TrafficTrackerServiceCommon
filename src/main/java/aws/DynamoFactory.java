@@ -16,13 +16,13 @@ public class DynamoFactory {
 
     @Bean
     @Scope("prototype")
-    public static AmazonDynamoDB createClient() {
+    public static AmazonDynamoDB createDDBClient() {
         return builder.build();
     }
 
     @Bean
     @Scope("prototype")
-    public static DynamoDBMapper createMapper() {
+    public static DynamoDBMapper createDDBMapper() {
         return new DynamoDBMapper(builder.build());
     }
 }

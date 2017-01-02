@@ -46,6 +46,11 @@ dependencies {
     // Guava
     compile group: 'com.google.guava', name: 'guava', version: '19.0'
 
+    // Jackson
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-guava', version: '2.8.5'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.8.5'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.8.5'
+
     // Immutables
     compile "org.immutables:value:2.2.10" // compilation-only annotations artifact
     compile "org.immutables:value:2.2.10:annotations" // compilation-only annotations artifact
