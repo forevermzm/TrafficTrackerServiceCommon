@@ -1,5 +1,6 @@
 package pojo.json;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
@@ -13,11 +14,13 @@ public abstract class SrcDestPair {
     public abstract GoogleAddress getSrcAddress();
     public abstract GoogleAddress getDestAddress();
 
+    @JsonIgnore
     @Value.Derived
     public String getId() {
         return getSrcAddress().getPlaceId() + "-" + getDestAddress().getPlaceId();
     }
 
+    @JsonIgnore
     @Value.Derived
     public String getPath() {
         return getSrcAddress().getPlaceId() + "/" + getDestAddress().getPlaceId();

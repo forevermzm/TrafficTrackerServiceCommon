@@ -20,6 +20,8 @@ public abstract class TrafficStatusDocument {
 
     public abstract Map<GoogleTravelMode, List<TimeDurationPair>> getTrafficStatuses();
 
+    public abstract Map<GoogleTravelMode, List<TimeDurationPair>> getReversedTrafficStatuses();
+
     public abstract Instant getLastUpdatedTime();
 
     public abstract int getUpdateCounter();
