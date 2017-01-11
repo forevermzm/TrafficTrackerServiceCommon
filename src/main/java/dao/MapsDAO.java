@@ -36,9 +36,9 @@ public class MapsDAO {
     static {
         CARED_MODES = ImmutableList.<TravelMode>builder()
                 .add(TravelMode.DRIVING)
-                .add(TravelMode.TRANSIT)
-                .add(TravelMode.WALKING)
-                .add(TravelMode.BICYCLING)
+//                .add(TravelMode.TRANSIT)
+//                .add(TravelMode.WALKING)
+//                .add(TravelMode.BICYCLING)
                 .build();
     }
 
