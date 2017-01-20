@@ -14,4 +14,9 @@ public class GeoContextFactory {
     public static GeoApiContext createApiContext() {
         return context;
     }
+
+    @Bean(name = "GoogleApiKey")
+    public static String getApiKey() {
+        return googleApiKey;
+    }
 }
